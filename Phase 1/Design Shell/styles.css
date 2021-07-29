@@ -1,0 +1,15 @@
+h1{color: blue}
+h2{color: red}
+h3{color: purple}
+H4{color: green}
+p{font-size: 20px;}
+div{border-radius: 20px;}
+
+/* classes */
+div.group1{ background-color: salmon; width: 600px ;}
+div.group2{ background-color: skyblue; width: 500px;}
+div.group3{ background-color: rgb(79, 175, 138); width: 400px;}
+p.firstP{font-size: 40pt;}
+p.secondP{font-size: 8pt;}
+
+.lineUp{text-align: center;}
