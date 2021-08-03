@@ -10,11 +10,21 @@
 </head>
 <body>
     <div class="center">
-        <h2>Client Name</h2><textarea></textarea><br/>
-        <h2>Project Name</h2> <textarea></textarea><br/>
-        <h2>Budget</h2><textarea></textarea><br/>
-        <a href = programManagers.html class="input">Add</a>
-        <a href = programManagers.html class="input">Clear</a><br/>
+        <form>
+            <label for="cName"> Client Name </label>
+            <input type = "text" id = "cName"><br/><br/>
+
+            <label for="pName"> Project Name </label>
+            <input type = "text" id = "pName"><br/><br/>
+
+            <label for="budget"> Budget </label>
+            <input type = "text" id = "budget"><br/><br/>
+            <!-- <label>Client Name</label><textarea></textarea><br/>
+            <h2>Project Name</h2> <textarea></textarea><br/>
+            <h2>Budget</h2><textarea></textarea><br/> -->
+            <input type="submit" value="Add">
+            <input type="reset" value="Clear"/><br/>
+        </form>
         <a href=mainPage.html>Back</a>
     </div>
 </body>
