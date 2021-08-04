@@ -20,6 +20,7 @@ function getData() {
     let jsonData = sessionStorage.getItem(0);
     let parsedJSON = JSON.parse(jsonData);
     var table = document.getElementById("myTable");
+    let total = 0;
     for(var i = 0 ; i < parsedJSON.length ; i++) {
         var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
@@ -28,5 +29,7 @@ function getData() {
         cell1.innerHTML = parsedJSON[i].client;
         cell2.innerHTML = parsedJSON[i].project;
         cell3.innerHTML = "$" + parsedJSON[i].budgetVal;
+        total += parseInt(parsedJSON[i].budgetVal,10);
     }
+    document.write("Total Budget: " + total);
 }
