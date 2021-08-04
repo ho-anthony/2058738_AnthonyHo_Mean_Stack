@@ -15,25 +15,26 @@
 //     }
 //     console.log(result);
 // }
-
+var jsonArr = new Array;
 function storeData(cName, pName, budget) {
     let jsonObj = {client:cName.value, project:pName.value, budgetVal:budget.value};
     if(sessionStorage.getItem(0) === null) {
-        sessionStorage.setItem(0,JSON.stringify(jsonObj));
-        let newObj = sessionStorage.getItem(0);
-        let test = JSON.parse(newObj);
-        console.log(newObj);
-    } else {
-        let jsonArr = new Array;
-        let newJSON = sessionStorage.getItem(0);
-        jsonArr.push(JSON.parse(newJSON));
         jsonArr.push(jsonObj);
         sessionStorage.setItem(0,JSON.stringify(jsonArr));
-
-        // let testJSON = sessionStorage.getItem(0);
-        // console.log(testJSON);
+    } else {
+        let newJSON = sessionStorage.getItem(0);
+        //jsonArr.push(JSON.parse(newJSON));
+        jsonArr.push(jsonObj);
+        sessionStorage.setItem(0,JSON.stringify(jsonArr));
     }
+}
 
+function getData() {
+    let jsonData = sessionStorage.getItem(0);
+    let test = JSON.parse(jsonData);
+    for(var i = 0 ; i < test.length ; i++) {
+        console.log(test[i]);
+    }
 }
 // Pass a json array into session storage instead of each individual input. In the store data function, pull the array, then edit the array and put the array back into
 //session storage and use that in your table instead
