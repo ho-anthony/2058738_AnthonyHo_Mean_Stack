@@ -8,8 +8,28 @@
     <title>Document</title>
     <style>
         h2{ text-align: center;}
+        div.blogCard{height: 400px; width: 400px; display: inline-block;}
     </style>
-    <h2>Simply Blogging</h2>
+    <script>
+        function createCard(title, article, image) {
+            let outerCard = document.createElement('div');
+            outerCard.className = 'card blogCard';
+            let cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header';
+            cardHeader.innerHTML = "<h6>" + title + "</h6>";
+            let cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+            cardBody.innerHTML = article;
+            let cardImage = document.createElement('img');
+            cardImage.className = 'card-img-bottom';
+            cardImage.src = image;
+            outerCard.appendChild(cardHeader);
+            outerCard.appendChild(cardBody);
+            outerCard.appendChild(cardImage);
+            document.body.appendChild(outerCard);
+        }
+    </script>
+    <h2 style="margin-bottom: 20px;">Simply Blogging</h2>
 </head>
 <body>
     <div>
@@ -28,15 +48,15 @@
                     <label>Title</label>
                 </div>
                 <div class="col-6">
-                    <input type = "text" class = "form-control"><br/>
+                    <input type = "text" class = "form-control" id = "cardName"><br/>
                 </div>
-            </div>
+            </div>    
             <div class="row">
                 <div class="col-2">
                     <label>Articles</label>
                 </div>
                 <div class="col-6">
-                    <input type = "text" class = "form-control"><br/>
+                    <input type = "text" class = "form-control" id = "articles"><br/>
                 </div>
             </div>            
             <div class="row">
@@ -44,13 +64,13 @@
                     <label>Add Image</label>
                 </div>
                 <div class="col-6">
-                    <input type = "text" class = "form-control"><br/>
+                    <input type = "text" class = "form-control" id = "image"><br/>
                 </div>
             </div>
-            <input type="button" class = "btn btn-dark" value="Add Blog"/>
+            <input type="button" class = "btn btn-dark" value="Add Blog" onclick="createCard(cardName.value, articles.value, image.value)"/>
         </form>
     </div>
-
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
