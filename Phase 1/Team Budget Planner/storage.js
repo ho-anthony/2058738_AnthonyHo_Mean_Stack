@@ -27,6 +27,6 @@ function getData() {
         var cell3 = row.insertCell(2);
         cell1.innerHTML = parsedJSON[i].client;
         cell2.innerHTML = parsedJSON[i].project;
-        cell3.innerHTML = parsedJSON[i].budgetVal;
+        cell3.innerHTML = "$" + parsedJSON[i].budgetVal;
     }
 }
