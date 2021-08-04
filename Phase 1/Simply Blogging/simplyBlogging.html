@@ -8,14 +8,21 @@
     <title>Document</title>
     <style>
         h2{ text-align: center;}
-        div.blogCard{height: 400px; width: 400px; display: inline-block;}
+        h6{ text-align: center; font-family:cursive;}
+        img{width:300px ; height: 300px;}
+        div.blogCard{height: 450px; width: 450px; display: inline-block;}
     </style>
     <script>
         function createCard(title, article, image) {
             let outerCard = document.createElement('div');
             outerCard.className = 'card blogCard';
+            outerCard.style.borderWidth="0.5px";
+            outerCard.style.marginLeft="10px";
+            outerCard.style.marginTop="5px";
+            outerCard.style.marginBottom="5px";
             let cardHeader = document.createElement('div');
             cardHeader.className = 'card-header';
+            cardHeader.style.backgroundColor="rgba(153,153,255,0.5)"
             cardHeader.innerHTML = "<h6>" + title + "</h6>";
             let cardBody = document.createElement('div');
             cardBody.className = 'card-body';
