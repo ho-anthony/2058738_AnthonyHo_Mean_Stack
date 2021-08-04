@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" type="text/css" />
+    <script src="storage.js"></script>
     <title>Document</title>
     <h1>Add New Budget</h1>
 </head>
@@ -19,13 +20,12 @@
 
             <label for="budget"> Budget </label>
             <input type = "text" id = "budget"><br/><br/>
-            <!-- <label>Client Name</label><textarea></textarea><br/>
-            <h2>Project Name</h2> <textarea></textarea><br/>
-            <h2>Budget</h2><textarea></textarea><br/> -->
-            <input type="submit" value="Add">
+
+            <input type="button" value="Add" onclick="storeData(cName,pName,budget)"/>     
             <input type="reset" value="Clear"/><br/>
         </form>
         <a href=mainPage.html>Back</a>
     </div>
+    <input type="button" value="test" onclick="getData()"/>   
 </body>
 </html>
