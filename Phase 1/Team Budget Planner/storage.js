@@ -1,20 +1,3 @@
-// function storeData(cName, pName, budget) {
-//     let jsonObj = {client:cName.value, project:pName.value, budgetVal:budget.value};
-//     sessionStorage.setItem(cName.value,JSON.stringify(jsonObj));
-//     // let newObj = sessionStorage.getItem(cName.value);
-//     // let test = JSON.parse(newObj); 
-//     // console.log(test.project);
-// }
-
-// function getData() {
-//     let result = new Array();
-//     for(var i = 0 ; i < sessionStorage.length ; i++) {
-//         let curr = sessionStorage.getItem(sessionStorage.key(i));
-//         let currJSON = JSON.parse(curr);
-//        result[i] = currJSON;
-//     }
-//     console.log(result);
-// }
 var jsonArr = new Array;
 function storeData(cName, pName, budget) {
     let jsonObj = {client:cName.value, project:pName.value, budgetVal:budget.value};
@@ -23,7 +6,6 @@ function storeData(cName, pName, budget) {
         sessionStorage.setItem(0,JSON.stringify(jsonArr));
     } else {
         let newJSON = sessionStorage.getItem(0);
-        //jsonArr.push(JSON.parse(newJSON));
         jsonArr.push(jsonObj);
         sessionStorage.setItem(0,JSON.stringify(jsonArr));
     }
@@ -32,8 +14,16 @@ function storeData(cName, pName, budget) {
 function getData() {
     let jsonData = sessionStorage.getItem(0);
     let test = JSON.parse(jsonData);
+    // var table = document.getElementById("myTable");
     for(var i = 0 ; i < test.length ; i++) {
-        console.log(test[i]);
+        // var row = table.insertRow(0);
+        console.log(test[i].client);
+        console.log(test[i].project)
+        console.log(test[i].budgetVal)
+        // //console.log(JSON.stringify(test[i]));
+        //  console.log(currRow.client.value)
+        //  console.log(blah.project)
+        //  console.log(blah.budgetVal)
     }
 }
 // Pass a json array into session storage instead of each individual input. In the store data function, pull the array, then edit the array and put the array back into
