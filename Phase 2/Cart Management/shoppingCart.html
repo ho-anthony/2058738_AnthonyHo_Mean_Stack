@@ -6,14 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        div{text-align: center;}
+        img{height:110px; width:160px ; align-self: center;}
+        div.item{
+            height: 250px;
+            width: 350px;
+            border-radius: 20px; 
+            border-width: 3px;
+        }
+    </style>
 </head>
 <body>
     <H1 style = "text-align: center;"> Shopping Cart </H1>
-    <a href="checkout.html">Checkout</a>
+    <div class = "row">
+        <div class = "col-6">
+            <div>
+                <h5 style="display: inline-block;"> Cart Size: </h5>
+                <h5 id="cartValue" style="display: inline-block;">0</h5>
+            </div>
+        </div>
+        <div class = "col-6">
+            <a href="checkout.html">Checkout</a>
+        </div>
+    </div>
+    <!-- First row of cards -->
+    <div class="row justify-content-center" style = "margin-top: 30px; ">
+        <div class = "card item col-2" style="margin-inline: 5px; ">
+            Samoyed Puppy </br>
+            $5000 </br>
+            <img src = "https://dogtime.com/assets/uploads/gallery/samoyed-dogs-and-puppies/samoyed-dogs-puppies-1.jpg"/> </br>
+            <button input="button" class = "btn btn-info">add</button>
+        </div>
+        <div class = "card item col-2" style="margin-inline: 5px; border-radius: 20px;">
+            Samoyed Adult </br>
+            $2000 </br>
+            <img src = "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12212924/Samoyed-slide-5.jpg"/> </br>
+            <button input="button" class = "btn btn-info">add</button>
+        </div>
+    </div>
 
+    <!-- Second row of cards -->
+    <div class="row justify-content-center" style = "margin-top: 10px;">
+        <div class = "card item col-2" style="margin-inline: 5px; border-radius: 20px;">
+            Husky Puppy </br>
+            $800 </br>
+            <img src = "https://siberianhuskypuppyforsale.in/wp-content/uploads/2020/09/buy-siberian-husky-puppy-1.png"/> </br>
+            <button input="button" class = "btn btn-info">add</button>
+        </div>
+        <div class = "card item col-2" style="margin-inline: 5px; border-radius: 20px;">
+            Husky Adult </br>
+            $500 </br>
+            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMOk6fa8HznDYY-wSOxcJpspCs-DE3YofWQ&usqp=CAU"/> </br>
+            <button input="button" class = "btn btn-info">add</button>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
