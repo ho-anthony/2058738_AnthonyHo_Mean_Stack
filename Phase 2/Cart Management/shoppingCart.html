@@ -16,6 +16,7 @@
             border-width: 3px;
         }
     </style>
+    <script src="shoppingCart.js"></script>
 </head>
 <body>
     <H1 style = "text-align: center;"> Shopping Cart </H1>
@@ -36,13 +37,13 @@
             Samoyed Puppy </br>
             $5000 </br>
             <img src = "https://dogtime.com/assets/uploads/gallery/samoyed-dogs-and-puppies/samoyed-dogs-puppies-1.jpg"/> </br>
-            <button input="button" class = "btn btn-info">add</button>
+            <button input="button" class = "btn btn-info" onclick="addCart('Samoyed Puppy',5000)">add</button>
         </div>
         <div class = "card item col-2" style="margin-inline: 5px; border-radius: 20px;">
             Samoyed Adult </br>
             $2000 </br>
             <img src = "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12212924/Samoyed-slide-5.jpg"/> </br>
-            <button input="button" class = "btn btn-info">add</button>
+            <button input="button" class = "btn btn-info" onclick="addCart('Samoyed Adult',2000)">add</button>
         </div>
     </div>
 
@@ -52,13 +53,13 @@
             Husky Puppy </br>
             $800 </br>
             <img src = "https://siberianhuskypuppyforsale.in/wp-content/uploads/2020/09/buy-siberian-husky-puppy-1.png"/> </br>
-            <button input="button" class = "btn btn-info">add</button>
+            <button input="button" class = "btn btn-info" onclick="addCart('Husky Puppy',800)">add</button>
         </div>
         <div class = "card item col-2" style="margin-inline: 5px; border-radius: 20px;">
             Husky Adult </br>
             $500 </br>
             <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMOk6fa8HznDYY-wSOxcJpspCs-DE3YofWQ&usqp=CAU"/> </br>
-            <button input="button" class = "btn btn-info">add</button>
+            <button input="button" class = "btn btn-info" onclick="addCart('Husky Adult',500)">add</button>
         </div>
     </div>
 
