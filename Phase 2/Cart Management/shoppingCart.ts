@@ -1,8 +1,5 @@
 var jsonArr = new Array;
 function addCart(name:String, val:number) : void{
-    // let currCount:number = parseInt(document.getElementById("cartValue").innerHTML);
-    // currCount++;
-    // document.getElementById("cartValue").innerHTML = ""+currCount;
     let currCount:number = parseInt(sessionStorage.getItem("1"));
     currCount++;
     document.getElementById("cartValue").innerHTML = ""+currCount;
