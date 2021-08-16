@@ -11,14 +11,16 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {}
   loginMsg:String = "";
   registerMsg:String="";
+  infoMsg:String="";
   showLogin:boolean = true;
   showRegister:boolean = false;
   showPortfolio:boolean = false;
+  showTable:boolean = false;
   currUser:any = "";
+  infoArr = new Array;
   
   checkLogin(loginRef:NgForm):void {
     let login = loginRef.value;
-    console.log(login.username + " " + login.password);
     if(login.username == sessionStorage.getItem("username") && sessionStorage.getItem("password")) {
       this.loginMsg = "login success";
       this.currUser = sessionStorage.getItem("username");
@@ -32,11 +34,13 @@ export class AppComponent implements OnInit{
   navRegister():void {
     this.showLogin = false;
     this.showRegister = true;
+    this.registerMsg = "";
   }
 
   navLogin():void {
     this.showLogin = true;
     this.showRegister = false;
+    this.loginMsg = "";
   }
 
   checkRegister(registerRef:NgForm):void {
@@ -49,6 +53,22 @@ export class AppComponent implements OnInit{
     } else {
       this.registerMsg = "Please fill in all fields"
     }
+  }
+
+  saveInfo(portfolioEntry:NgForm):void{
+    let info = portfolioEntry.value;
+    let infoVal = portfolioEntry.valid;
+    let jsonObj = {conName:info.coName, conNum:info.phoneNum};
+    if(infoVal) {
+      this.infoMsg="";
+      this.infoArr.push(jsonObj);
+    } else {
+      this.infoMsg="Please fill in all fields"
+    }
+  }
+
+  showPort():void {
+    this.showTable=!this.showTable;
   }
 
 }

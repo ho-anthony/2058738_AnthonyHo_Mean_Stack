@@ -38,12 +38,27 @@
 <div *ngIf="showPortfolio">
   <h2>My Portfiolio</h2>
   <h3>Welcome, {{currUser}}</h3>
-  <form #portfolioEntry="ngForm">
+  <form #portfolioEntry="ngForm" (ngSubmit)="saveInfo(portfolioEntry)">
     <label>Contact Name</label>
     <input type="text" name="coName" ngModel required/><br/>
     <label>Phone No.</label>
     <input type="text" name="phoneNum" ngModel required/><br/>
     <input type="submit" value="Save"/> 
+    <h3>{{infoMsg}}</h3>
   </form>
-  <input type="button" value="Contact Details"/>
+  <input type="button" value="Contact Details" (click)="showPort()"/>
+  <div *ngIf="showTable">
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Phone No.</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let iter of infoArr">
+          <td>{{iter.conName}}</td>
+          <td>{{iter.conNum}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
