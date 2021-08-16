@@ -1,11 +1,11 @@
 <!-- Login Page -->
 <div *ngIf="showLogin">
-  <h2>Login</h2>
+  <h1>Login</h1>
   <form #loginRef="ngForm" (ngSubmit)="checkLogin(loginRef)" >
     <label>UserName</label>
-    <input type="text" name="username" ngModel required/><br/>
+    <input class="box" type="text" name="username" ngModel required/><br/>
     <label>Password</label>
-    <input type="password" name = "password" ngModel required/><br/>
+    <input class="box" type="password" name = "password" ngModel required/><br/>
     <input type="submit"/>
     <input type="reset"/>
     <br/>
@@ -16,16 +16,16 @@
 
 <!-- Register Page -->
 <div *ngIf="showRegister">
-  <h2>Register</h2>
+  <h1>Register</h1>
   <form #registerRef="ngForm" (ngSubmit)="checkRegister(registerRef)">
     <label>First Name</label>
-    <input type="text" name="fname" ngModel required/><br/>
+    <input class="box" type="text" name="fname" ngModel required/><br/>
     <label>Last Name</label>
-    <input type="text" name="lname" ngModel required/><br/>
+    <input class="box" type="text" name="lname" ngModel required/><br/>
     <label>Username</label>
-    <input type="text" name="uname" ngModel required/><br/>
+    <input class="box" type="text" name="uname" ngModel required/><br/>
     <label>Password</label>
-    <input type="password" name="pass" ngModel required/><br/>
+    <input class="box" type="password" name="pass" ngModel required/><br/>
     <input type="submit"/>
     <input type="reset"/>
     <br/>
@@ -36,19 +36,19 @@
 
 <!-- Portfolio Page -->
 <div *ngIf="showPortfolio">
-  <h2>My Portfiolio</h2>
-  <h3>Welcome, {{currUser}}</h3>
+  <h1>My Portfiolio</h1>
+  <h2>Welcome, {{currUser}}</h2>
   <form #portfolioEntry="ngForm" (ngSubmit)="saveInfo(portfolioEntry)">
     <label>Contact Name</label>
-    <input type="text" name="coName" ngModel required/><br/>
+    <input class="box" type="text" name="coName" ngModel required/><br/>
     <label>Phone No.</label>
-    <input type="text" name="phoneNum" ngModel required/><br/>
+    <input class="box" type="text" name="phoneNum" ngModel required/><br/>
     <input type="submit" value="Save"/> 
     <h3>{{infoMsg}}</h3>
   </form>
   <input type="button" value="Contact Details" (click)="showPort()"/>
   <div *ngIf="showTable">
-    <table>
+    <table border = 1 cellpadding = 15px align="Center">
       <thead>
         <th>Name</th>
         <th>Phone No.</th>
