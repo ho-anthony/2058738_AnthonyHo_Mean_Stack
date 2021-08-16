@@ -1,20 +1,21 @@
 <!-- Login Page -->
-<div>
+<div *ngIf="showLogin">
   <h2>Login</h2>
-  <form #loginRef="ngForm" (ngSubmit)="checkLogin(loginRef)">
+  <form #loginRef="ngForm" (ngSubmit)="checkLogin(loginRef)" >
     <label>UserName</label>
     <input type="text" name="username" ngModel required/><br/>
     <label>Password</label>
     <input type="password" name = "password" ngModel required/><br/>
     <input type="submit"/>
     <input type="reset"/>
-    <h4>Signup</h4>
+    <br/>
+    <a href="#" (click)="navRegister()">Signup</a>
   </form>
   {{loginMsg}}
 </div>
 
 <!-- Register Page -->
-<div>
+<div *ngIf="showRegister">
   <h2>Register</h2>
   <form #registerRef="ngForm" (ngSubmit)="checkRegister(registerRef)">
     <label>First Name</label>
@@ -27,12 +28,13 @@
     <input type="password" name="pass" ngModel required/><br/>
     <input type="submit"/>
     <input type="reset"/>
-    <h4>Login</h4>
+    <br/>
+    <a href="#" (click) = "navLogin()">Login</a>
   </form>
   {{registerMsg}}
 </div>
 
 <!-- Portfolio Page -->
-<div>
+<div *ngIf="showPortfolio">
   <h2>My Portfiolio</h2>
 </div>
