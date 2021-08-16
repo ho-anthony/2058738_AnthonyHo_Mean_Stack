@@ -11,7 +11,7 @@
     <br/>
     <a href="#" (click)="navRegister()">Signup</a>
   </form>
-  {{loginMsg}}
+  <h3>{{loginMsg}}</h3>
 </div>
 
 <!-- Register Page -->
@@ -31,10 +31,19 @@
     <br/>
     <a href="#" (click) = "navLogin()">Login</a>
   </form>
-  {{registerMsg}}
+  <h3>{{registerMsg}}</h3>
 </div>
 
 <!-- Portfolio Page -->
 <div *ngIf="showPortfolio">
   <h2>My Portfiolio</h2>
+  <h3>Welcome, {{currUser}}</h3>
+  <form #portfolioEntry="ngForm">
+    <label>Contact Name</label>
+    <input type="text" name="coName" ngModel required/><br/>
+    <label>Phone No.</label>
+    <input type="text" name="phoneNum" ngModel required/><br/>
+    <input type="submit" value="Save"/> 
+  </form>
+  <input type="button" value="Contact Details"/>
 </div>
