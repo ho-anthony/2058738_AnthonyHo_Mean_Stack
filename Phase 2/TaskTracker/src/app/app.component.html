@@ -1,0 +1,35 @@
+<h1>Task Tracker</h1>
+<h2>To-do tasks</h2>
+<form #taskForm="ngForm" (ngSubmit)="addTask(taskForm)">
+  <label>ID:</label>
+  <input type="text" name="taskID" ngModel required/>
+  <br/>
+  <label>Name:</label>
+  <input type="text" name="taskName" ngModel required/>
+  <br/>
+  <label>Task:</label>
+  <input type="text" name="taskTask" ngModel required/>
+  <br/>
+  <label>Deadline:</label>
+  <input type="text" name="taskDeadline" ngModel required>
+  <br/>
+  <input type="submit">
+  <input type="reset">
+</form>
+
+<table border = 1 cellpadding = 15>
+  <thead>
+    <th>Emp id</th>
+    <th>Name</th>
+    <th>Task</th>
+    <th>Deadline</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let iter of taskList">
+      <td>{{iter.id}}</td>
+      <td>{{iter.name}}</td>
+      <td>{{iter.task}}</td>
+      <td>{{iter.deadline}}</td>
+    </tr>
+  </tbody>
+</table>
