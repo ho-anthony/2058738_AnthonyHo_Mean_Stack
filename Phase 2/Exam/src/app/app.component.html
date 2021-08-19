@@ -1,1 +1,19 @@
-<h1 style="text-align: center;">Online Test Application</h1>
+<div style="text-align: center;">
+  <h1>Online Test Application</h1>
+  <form [formGroup]="questionList" (ngSubmit)="checkAnswer()">
+    <div *ngFor="let q of tempJson">
+      <h4>{{q.QNum}}. {{q.Question}}</h4>
+      <input type="radio" formControlName={{q.Question}} value={{q.Opt1}}>{{q.Opt1}}<br/>
+      <input type="radio" formControlName={{q.Question}} value={{q.Opt2}}>{{q.Opt2}}<br/>
+      <input type="radio" formControlName={{q.Question}} value={{q.Opt3}}>{{q.Opt3}}<br/>
+      <input type="radio" formControlName={{q.Question}} value={{q.Opt4}}>{{q.Opt4}}<br/>
+      <!-- <h3>{{q.corr}}</h3> -->
+      <h5 *ngIf="q.corr == 'Correct!'" style = "color:green">{{q.corr}}</h5>
+      <h5 *ngIf="q.corr != 'Correct!'" style = "color:red">{{q.corr}}</h5>
+    </div>
+    <input type="submit">
+    <h4 *ngIf="passed && showResult" style="color:green">Your score is {{numCorrect}}/3! You passed!</h4>
+    <h4 *ngIf="!passed && showResult" style="color:red">Your score is {{numCorrect}}/3! You failed!</h4>
+  </form>
+</div>
+
