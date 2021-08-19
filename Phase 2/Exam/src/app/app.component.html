@@ -1,9 +1,8 @@
 <div class="container" style="text-align: center; justify-content: center">
-  <h1>Online Test Application</h1>
+  <h1 style="margin-bottom:30px; ;">Online Test Application</h1>
   <form [formGroup]="questionList" (ngSubmit)="checkAnswer()">
-    <div class="row">
-      <div class="border py-3 col-6" *ngFor="let q of qList">
-        <h4>{{q.QNum}}. {{q.Question}}</h4>
+      <div class="border py-3" *ngFor="let q of qList">
+        <h4>{{q.QNum}}. What is {{q.Question}}</h4>
   
         <div class="form-check">
           <input class="form-check-input with-gap" type="radio" formControlName={{q.Question}} value={{q.Opt1}} id = "radio1">
@@ -30,7 +29,6 @@
         <h5 *ngIf="q.corr != 'Correct!'&& showResult" style = "color:red">{{q.corr}}</h5>
         <h5 *ngIf="q.corr != 'Correct!'&& showResult" style = "color:green">Correct answer was {{q.Ans}}</h5>
       </div>
-    </div>
     
     <button class="btn btn-outline-success" type="submit" style = "margin-bottom: 20px; margin-top:15px">Submit</button>
     <h4 *ngIf="passed && showResult" style="color:green; margin-bottom: 20px;">Your score is {{numCorrect}}/10! You passed!</h4>
