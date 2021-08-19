@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
         element.corr = "Correct!"
         counter++;
       } else {
-        element.corr="Wrong answer! Correct answer was " + element.Ans;
+        element.corr="Wrong answer!";
       }
     });
     this.numCorrect = ""+counter;

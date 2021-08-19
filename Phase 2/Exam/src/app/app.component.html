@@ -1,19 +1,40 @@
-<div style="text-align: center;">
+<div class="container" style="text-align: center; justify-content: center">
   <h1>Online Test Application</h1>
   <form [formGroup]="questionList" (ngSubmit)="checkAnswer()">
-    <div *ngFor="let q of qList">
-      <h4>{{q.QNum}}. {{q.Question}}</h4>
-      <input type="radio" formControlName={{q.Question}} value={{q.Opt1}}>{{q.Opt1}}<br/>
-      <input type="radio" formControlName={{q.Question}} value={{q.Opt2}}>{{q.Opt2}}<br/>
-      <input type="radio" formControlName={{q.Question}} value={{q.Opt3}}>{{q.Opt3}}<br/>
-      <input type="radio" formControlName={{q.Question}} value={{q.Opt4}}>{{q.Opt4}}<br/>
-      <!-- <h3>{{q.corr}}</h3> -->
-      <h5 *ngIf="q.corr == 'Correct!'" style = "color:green">{{q.corr}}</h5>
-      <h5 *ngIf="q.corr != 'Correct!'" style = "color:red">{{q.corr}}</h5>
+    <div class="row">
+      <div class="border py-3 col-6" *ngFor="let q of qList">
+        <h4>{{q.QNum}}. {{q.Question}}</h4>
+  
+        <div class="form-check">
+          <input class="form-check-input with-gap" type="radio" formControlName={{q.Question}} value={{q.Opt1}} id = "radio1">
+          <label class="form-check-label" for="radio1">{{q.Opt1}}</label><br/>
+        </div>
+  
+        <div class="form-check">
+          <input class="form-check-input with-gap" type="radio" formControlName={{q.Question}} value={{q.Opt2}} id = "radio2">
+          <label class="form-check-label" for="radio2">{{q.Opt2}}</label><br/>
+        </div>
+  
+        <div class="form-check">
+          <input class="form-check-input with-gap" type="radio" formControlName={{q.Question}} value={{q.Opt3}} id = "radio3">
+          <label class="form-check-label" for="radio3">{{q.Opt3}}</label><br/>
+        </div>
+  
+        <div class="form-check">
+          <input class="form-check-input with-gap" type="radio" formControlName={{q.Question}} value={{q.Opt4}} id = "radio4">
+          <label class="form-check-label" for="radio4">{{q.Opt4}}</label><br/>
+        </div>
+  
+        <!-- <h3>{{q.corr}}</h3> -->
+        <h5 *ngIf="q.corr == 'Correct!'&& showResult" style = "color:green">{{q.corr}}</h5>
+        <h5 *ngIf="q.corr != 'Correct!'&& showResult" style = "color:red">{{q.corr}}</h5>
+        <h5 *ngIf="q.corr != 'Correct!'&& showResult" style = "color:green">Correct answer was {{q.Ans}}</h5>
+      </div>
     </div>
-    <input type="submit">
-    <h4 *ngIf="passed && showResult" style="color:green">Your score is {{numCorrect}}/10! You passed!</h4>
-    <h4 *ngIf="!passed && showResult" style="color:red">Your score is {{numCorrect}}/10! You failed!</h4>
+    
+    <button class="btn btn-outline-success" type="submit" style = "margin-bottom: 20px; margin-top:15px">Submit</button>
+    <h4 *ngIf="passed && showResult" style="color:green; margin-bottom: 20px;">Your score is {{numCorrect}}/10! You passed!</h4>
+    <h4 *ngIf="!passed && showResult" style="color:red; margin-bottom: 20px;">Your score is {{numCorrect}}/10! You failed!</h4>
   </form>
 </div>
 
