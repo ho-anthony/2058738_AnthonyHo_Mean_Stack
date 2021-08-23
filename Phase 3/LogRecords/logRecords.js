@@ -1,5 +1,4 @@
 let fs = require("fs");
-const { get } = require("http");
 let rl = require("readline-sync");
 let dataLog;
 try{
