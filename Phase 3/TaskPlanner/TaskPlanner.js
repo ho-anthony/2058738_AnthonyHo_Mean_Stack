@@ -97,15 +97,25 @@ let server = http.createServer((request,response) => {
         try{
             currData = fs.readFileSync("taskList.json");
             let writeList = JSON.parse(currData);
-            writeList.push(newJson);
-            fs.writeFileSync("taskList.json",JSON.stringify(writeList));
+            if(writeList.find(entry => entry.taskId == data.tId) == undefined) {
+                writeList.push(newJson);
+                fs.writeFileSync("taskList.json",JSON.stringify(writeList));
+                response.writeHead(200,{"content-type":"text/html"});
+                response.write("Task Added!");
+                response.write(plannerPage);
+            } else {
+                response.writeHead(400,{"content-type":"text/html"});
+                response.write("Task ID must be unique!");
+                response.write(plannerPage);
+            }
         } catch(err) {
             let writeList = [newJson];
             fs.writeFileSync("taskList.json",JSON.stringify(writeList));
+            response.writeHead(200,{"content-type":"text/html"});
+            response.write("Task Added!");
+            response.write(plannerPage);
         }
-        response.writeHead(200,{"content-type":"text/html"});
-        response.write("Task Added!");
-        response.write(plannerPage);
+
     } else if(urlInfo.pathname == "/delTask") {
         let data = urlInfo.query;
         try {
