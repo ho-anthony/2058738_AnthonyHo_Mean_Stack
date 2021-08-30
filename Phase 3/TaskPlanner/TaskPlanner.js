@@ -1,7 +1,6 @@
 let http = require("http");
 let url = require("url");
 let fs = require("fs");
-const { table } = require("console");
 let plannerPage = `
 <!DOCTYPE html>
 <html lang="en">
@@ -85,18 +84,10 @@ let tablePage = `
             <th>Deadline</th>
         </tr>
     </thead>
-    <tbody>
-        <script>getRows();</script>
-    </tbody>
     </table>
 </body>
 </html> 
 `
-
-function getRows() {
-    console.log("called");
-   
-}
 
 let server = http.createServer((request,response) => {
      let urlInfo = url.parse(request.url,true);
