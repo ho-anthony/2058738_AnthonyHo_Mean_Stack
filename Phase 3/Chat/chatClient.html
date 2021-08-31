@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="chatClient.js"></script>
+</head>
+<body>
+    <div>
+        <form>
+            <label>Name:</label>
+            <input type="text" id="uName"/>
+            <br/><br/>
+            <label>Message:</label>
+            <textarea id="uMessage"></textarea>
+            <br/><br/>
+            <input type="button" value="Submit" onClick="getMessage(uName,uMessage)"/>
+        </form>
+    </div>
+    <div id="chat">
+        <h3>Chat History:</h4>
+    </div>
+</body>
+</html>
