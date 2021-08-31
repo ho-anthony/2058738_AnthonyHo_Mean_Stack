@@ -12,7 +12,7 @@ app.ws("/",(socket,request)=> {
         let currDate = new Date();
         let dateEntry = (currDate.getMonth()+1) + "/" + currDate.getDate() + "/" + currDate.getFullYear();
         let timeEntry = currDate.getHours() +":"+currDate.getMinutes()+":"+currDate.getSeconds();
-        let reply = "Message received on: " + dateEntry + " at " + timeEntry;
+        let reply = "Default Message - Message received on: " + dateEntry + " at " + timeEntry;
         console.log("Client says: " + msg);
         let replyIndex = common.findIndex(m => m==msg);
         if(replyIndex != -1) {
