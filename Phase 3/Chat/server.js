@@ -6,7 +6,7 @@ let common = ["hi","hello","how are you?","tell me a fact", "are you human?", "w
 let replies = ["Hey there!", "What's up", "I'm good, how about you?","The sky is blue", "No, I am a bot", "Purple", "2", "Bot Bottington"];
 
 io.on("connection",(socket)=> {
-    console.log("Client connected");
+    console.log("Client Connected!");
     socket.on("con",(msg)=> {
         console.log(msg);
     })
