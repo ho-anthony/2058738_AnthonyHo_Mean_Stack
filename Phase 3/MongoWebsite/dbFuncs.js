@@ -42,7 +42,16 @@ function callDB(fields,func) {
                 })
             })
         } else if( func=="update") {
-            console.log("updating");
+            db.once("open",() => {
+                courseModel.updateOne({_id:fields.id},{$set:{amt:fields.amt}},(err,result)=> {
+                    if(!err){
+                        console.log(result)
+                    } else {
+                        console.log(err);
+                    }
+                    mongoose.disconnect();  
+                })
+            })
         }
 }
 
