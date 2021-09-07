@@ -16,23 +16,31 @@ let courseModel = mongoose.model("Courses", courseSchema);
 mongoose.disconnect();
 
 function callDB(fields,func) {
-    console.log(fields.id);
+    mongoose.connect(url).then(res=>console.log("connected")).catch(err=>console.log(err));
+    let db = mongoose.connection;
         if(func=="add") {
-            mongoose.connect(url).then(res=>console.log("connected")).catch(err=>console.log(err));
-            let db = mongoose.connection;
             db.once("open",() => {
-            let newCourse = new courseModel({_id:fields.id,pname:fields.cName, cdesc:fields.desc, amt:fields.amt});
-            courseModel.insertMany(newCourse,(err,result)=> {
-                if(!err){
-                    console.log(result)
-                } else {
-                    console.log(err);
-                }
-                mongoose.disconnect();  
+                let newCourse = new courseModel({_id:fields.id,pname:fields.cName, cdesc:fields.desc, amt:fields.amt});
+                newCourse.save((err,result)=> {
+                    if(!err){
+                        console.log(result)
+                    } else {
+                        console.log(err);
+                    }
+                    mongoose.disconnect();  
+                })
             })
-        })
         } else if( func=="delete") {
-            console.log("deleting");
+            db.once("open",() => {
+                courseModel.deleteOne({_id:fields.id},(err,result)=> {
+                    if(!err){
+                        console.log(result)
+                    } else {
+                        console.log(err);
+                    }
+                    mongoose.disconnect();  
+                })
+            })
         } else if( func=="update") {
             console.log("updating");
         }
