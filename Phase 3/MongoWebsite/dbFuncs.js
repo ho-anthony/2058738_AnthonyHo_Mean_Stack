@@ -102,7 +102,6 @@ app.get("/fetchCourse",(request,response)=> {
                                         <td>` + rec.amt + `</td>
                                     </tr>
                         `
-                        console.log(htmlPage);
                     })
             }else {
                 console.log(err);
