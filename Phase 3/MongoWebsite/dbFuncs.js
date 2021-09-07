@@ -20,7 +20,7 @@ function callDB(fields,func) {
     let db = mongoose.connection;
         if(func=="add") {
             db.once("open",() => {
-                let newCourse = new courseModel({_id:fields.id,pname:fields.cName, cdesc:fields.desc, amt:fields.amt});
+                let newCourse = new courseModel({_id:fields.id, cname:fields.cName, cdesc:fields.desc, amt:fields.amt});
                 newCourse.save((err,result)=> {
                     if(!err){
                         console.log(result)
@@ -73,7 +73,48 @@ app.get("/deleteCourse",(request,response)=> {
     callDB(request.query,"delete");
 })
 app.get("/fetchCourse",(request,response)=> {
-    response.sendFile(__dirname+"\\fetchCourse.html");
+    let htmlPage = `<div style="text-align:center;">
+                        <h3>List of courses</h3>
+                    </div>
+                    <div>
+                        <table border = 1 cellpadding = 15 align="center">
+                            <thead> 
+                                <tr>
+                                    <th> ID </th>
+                                    <th> Name </th>
+                                    <th> Description </th>
+                                    <th> Amount </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `
+    mongoose.connect(url).then(res=>console.log("connected")).catch(err=>console.log(err));
+    let db = mongoose.connection;
+
+    db.once("open",()=> {
+        courseModel.find({},(err,doc)=> {
+            if(!err){
+                    doc.forEach(rec=> {
+                        htmlPage +=`<tr>
+                                        <td>` + rec._id + `</td>
+                                        <td>` + rec.cname + `</td>
+                                        <td>` + rec.cdesc + `</td>
+                                        <td>` + rec.amt + `</td>
+                                    </tr>
+                        `
+                        console.log(htmlPage);
+                    })
+            }else {
+                console.log(err);
+            }
+            mongoose.disconnect();
+            htmlPage += `</tbody>
+                        </table>
+                        </div>`
+            response.send(htmlPage);
+        })
+    })
+
 })
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))
