@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        var socket = io();
+        function getMessage(uName,uMessage) {
+            socket.emit("message",{name:uName.value, message:uMessage.value});
+        }
+    </script>
 </head>
 <body>
-    
+    <form>
+        <label>Name: </label>
+        <input type="text" id="uName"> <br/><br/>
+        <label>Message: </label>
+        <textarea id="uMessage"></textarea><br/><br/>
+        <input type="button" value="Send" onClick="getMessage(uName,uMessage)">
+    </form>
 </body>
 </html>
